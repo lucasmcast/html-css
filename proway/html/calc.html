@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tabela</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header id="mainHeader">
+
+    </header>
+    <main>
+        <input type="text" id="display" />
+        <div class="clear"></div>
+        <div class="tecla num" id="1">1</div>
+        <div class="tecla num" id="2">2</div>
+        <div class="tecla num" id="3">3</div>
+        <div class="tecla" id="+">+</div>
+        <div class="clear"></div>
+        <div class="tecla num" id="4">4</div>
+        <div class="tecla num" id="5">5</div>
+        <div class="tecla num" id="6">6</div>
+        <div class="tecla" id="-">-</div>
+        <div class="clear"></div>
+        <div class="tecla num" id="7">7</div>
+        <div class="tecla num" id="8">8</div>
+        <div class="tecla num" id="9">9</div>
+        <div class="tecla" id="+">*</div>
+        <div class="clear"></div>
+        <div class="tecla tecla2 num" id="0">0</div>
+        <div class="tecla" id="=">=</div>
+        <div class="tecla" id="/">/</div>
+        <div class="clear"></div>
+    </main>
+    <script>
+        let tecla = document.getElementsByClassName("tecla");
+        let input = document.getElementById("display");
+        let valores = [];
+
+        for (let i = 0; i < tecla.length; i++) {
+            tecla[i].addEventListener("click", function (e) {
+                let v1 = e.target.innerHTML;
+                input.value = v1 
+                valores.push(v1)
+                if (v1 == "="){
+                    let resultado = resultCalc(valores);
+                    input.value = resultado;
+                    valores = []
+                }
+            });
+        }
+
+        function resultCalc(valores){
+            let number1 = "";
+            let result = 0;
+            let sinal = "";
+            for(let j = 0; j < valores.length; j++){
+                let valor1 = valores[0];
+                let valor2 = valores[2];
+                result = calcular(valores[1], valor1, valor2);
+            }
+            console.log(number1)
+            return result;
+        }        
+        
+        function calcular(sinal, valor1, valor2){
+            switch(sinal){
+                case "+":
+                    return parseInt(valor1) + parseInt(valor2);
+                    break;
+                case "-":
+                    return parseInt(valor1) - parseInt(valor2);
+                    break;
+                case "*":
+                    return parseInt(valor1) * parseInt(valor2);
+                    break;
+                case "/":
+                    return parseInt(valor1) / parseInt(valor2);
+                    break;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
