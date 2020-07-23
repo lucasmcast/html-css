@@ -78,11 +78,11 @@
         const conteudo = document.getElementById("content");
         const tarefa = document.getElementById("tarefa");
         const menu = document.getElementById("menuButton");
-        const mainMenu = document.getElementById("mainMenu");
+        const mainMenu = document.getElementById("mainMenu").getElementsByTagName("ul");
 
         button.addEventListener("click", clickButton);
         menu.addEventListener('click', function(){
-            mainMenu.style.display = "inline-block";
+            mainMenu.style.display = "block";
             mainMenu.style.padding = "0";
             mainMenu.style.textAlign = "rigth";
             mainMenu.style.overflow = "inherit";
