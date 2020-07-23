@@ -83,6 +83,7 @@ li.menuItem:hover ul#subMenu{
     width: 100%;  
 }
 
+
 #customers td, #customers th {
     border: 1px solid #ddd;
     padding: 8px;
@@ -98,6 +99,11 @@ li.menuItem:hover ul#subMenu{
   text-align: left;
   background-color: #4CAF50;
   color: white;
+}
+
+tfoot {
+    background-color: #4CAF50;
+    color: #fff;
 }
 
 @media (max-width: 588px){

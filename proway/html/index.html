@@ -8,19 +8,33 @@
 
 <body>
     <h1>Lista de Tarefas</h1>
-    <input type="text">
-    <input type="datetime-local" id="birthdaytime" name="birthdaytime">
-    <button>Enviar</button>
+    <input id="tarefa" type="text"/>
+    <input type="datetime-local" id="data" name="birthdaytime"/>
+    <button id="button">Enviar</button>
     <div>
-            Tarefa 1: <input type="checkbox"> <br/>
-            Tarefa 2: <input type="checkbox"> <br/>
-            Tarefa 3: <input type="checkbox"> <br/>
-            <ul>
+            <ul id="lista">
                 <li>Tarefa 4</li>
                 <li>Tarefa 5</li>
                 <li>Tarefa 6</li>
             </ul>
     </div>
+
+    <script>
+        const button = document.getElementById("button");
+        const tarefa = document.getElementById("tarefa");
+        const listaTarefa = document.getElementById("lista");
+        const data = document.getElementById("data");
+
+        button.addEventListener("click", clickButton);
+
+        function clickButton(){
+            let lista = listaTarefa.innerHTML;
+            console.log(data.value)
+            lista = lista +"<li>"+tarefa.value + " | " + data.value +"</li>";
+            listaTarefa.innerHTML = lista;
+            tarefa.value = "";
+        }
+    </script>
     
 </body>
 

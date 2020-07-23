@@ -44,29 +44,61 @@
                     <th>Situação</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="content">
                 <tr>
-                    <th>1</th>
-                    <th>Tarefa 1</th>
-                    <th>Concluida</th>
+                    <td>1</td>
+                    <td>Tarefa 1</td>
+                    <td>Concluida</td>
                 </tr>   
                 <tr>
-                    <th>2</th>
-                    <th>Tarefa 2</th>
-                    <th>Pendente</th>
+                    <td>2</td>
+                    <td>Tarefa 2</td>
+                    <td>Pendente</td>
                 </tr>     
                 <tr>
-                    <th>3</th>
-                    <th>Tarefa 3</th>
-                    <th>Concluida</th>
-                </tr>
-                <tr>
-                    <th>4</th>
-                    <th><input/></th>
-                    <th><button>Adicionar</button></th>
-                </tr>     
+                    <td>3</td>
+                    <td>Tarefa 3</td>
+                    <td>Concluida</td>
+                </tr>   
             </tbody>
+            
+                <tfoot>
+                    <tr>
+                            <th></th>
+                            <th><input id="tarefa" type="text"/></th>
+                            <th><button id="button">Adicionar</button></th>
+                    </tr>
+                    
+                </tfoot>  
         </table>
     </main>
+    <script>
+        const button = document.getElementById("button");
+        const tabela = document.getElementById("customers");
+        const conteudo = document.getElementById("content");
+        const tarefa = document.getElementById("tarefa");
+        const menu = document.getElementById("menuButton");
+        const mainMenu = document.getElementById("mainMenu");
+
+        button.addEventListener("click", clickButton);
+        menu.addEventListener('click', function(){
+            mainMenu.style.display = "inline-block";
+            mainMenu.style.padding = "0";
+            mainMenu.style.textAlign = "rigth";
+            mainMenu.style.overflow = "inherit";
+        })
+
+        function clickButton(){
+            let linha = conteudo.insertRow(-1);
+            let coll1 = linha.insertCell(0);
+            let coll2 = linha.insertCell(1);
+            let coll3 = linha.insertCell(2);
+
+            let qtd = conteudo.getElementsByTagName("tr").length
+            coll1.innerHTML = qtd;
+            coll2.innerHTML = tarefa.value;
+            coll3.innerHTML = "Pendente";
+        }
+    </script>
 </body>
 </html>
