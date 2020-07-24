@@ -1,0 +1,20 @@
+.content{
+    max-width: 800px;
+    max-height: 600px;
+    margin: auto;
+    background: #f3f3f3;
+    height: 450px;
+    padding: 2%;
+    border: solid #000000;
+}
+
+.content h1{
+    text-align: center;
+}
+
+#form-tarefa input[type="text"]{
+    width: 80%;
+    height: 30px;
+    margin: 10px auto;
+    display: inline-block;
+}
