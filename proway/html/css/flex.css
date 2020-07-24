@@ -1,0 +1,17 @@
+.container{
+    background: darkcyan;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100vh;
+
+}
+
+.caixa{
+    width: 30px;
+    height: 30px;
+    background: red;
+    color: white;
+    font-size: 15px;
+    border: 0.5px solid #000000;
+}

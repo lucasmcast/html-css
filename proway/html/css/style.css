@@ -128,25 +128,3 @@ tfoot {
     }
 
 }
-
-#display{
-    margin-bottom: 1rem;
-}
-.tecla{
-    float: left;
-    width: 30px;
-    height: 30px;
-    border: 1px solid;
-    text-align: center;
-    padding-top: 5px;
-    padding: 1rem;
-    cursor: pointer;
-    background: chartreuse;
-}
-
-.tecla2{
-    width: 94px;
-}
-.clear{
-    clear: both;
-}

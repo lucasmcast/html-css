@@ -1,0 +1,28 @@
+#mainHeader {
+    width: 100%;
+    background: rgb(0,175,125);
+    position: fixed;
+    top: 0;
+}
+#display{
+    margin-bottom: 1rem;
+}
+
+.tecla{
+    float: left;
+    width: 30px;
+    height: 30px;
+    border: 1px solid;
+    text-align: center;
+    padding-top: 5px;
+    padding: 1rem;
+    cursor: pointer;
+    background: chartreuse;
+}
+
+.tecla2{
+    width: 94px;
+}
+.clear{
+    clear: both;
+}

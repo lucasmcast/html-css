@@ -1,0 +1,25 @@
+.container{
+    justify-content: space-around;
+    border: solid 1px;
+    border-radius: 40px;
+    box-shadow: 10px 9px 7px  rgba(50, 50, 50, 0.77);
+}
+
+ul#mainList{
+    list-style-type: upper-alpha;
+    font-size: 25px;
+}
+
+ul#mainList li ul{
+    list-style-type: lower-alpha;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+ul#mainList li ul li ul{
+    list-style-type: disc;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: initial;
+    font-style: italic;
+    font-variant: small-caps;
+}
