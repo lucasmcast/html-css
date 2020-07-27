@@ -1,38 +1,132 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Tarefa</title>
+    <title>Tabela</title>
     <link rel="stylesheet" href="css/lista_tarefa.css">
 </head>
+
 <body>
-    <div class="content">
-        <div class="row">
-            <div class="col">
-                <h1>Lista de Tarefas</h1>
-                <form id="form-tarefa">
-                    <input type="text" name="task" id="task"/>
-                    <input type="button" name="" value="Add Tarefa"/>
-                </form>
-            </div>
+    <header id="mainHeader">
+    </header>
+    <main>
+        <h1 style="margin: 10px;">Lista de Tarefas</h1>
+        <div class="containerInput">
+            <input id="inputAdd"type="text"/>
+            <button id=buttonAdd>Adicionar</button>
         </div>
-        <div class="row">
-            <div class="col">
-                <div class="add-list-box">
-                    <ul id="listaTarefa">
-                        <li>Tarefa 1
-                            <button>X</button>
-                        </li>
-                        <li>Tarefa 1</li>
-                        <li>Tarefa 1</li>
-                        <li>Tarefa 1</li>
-                        <li>Tarefa 1</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="container">
+            <table id="customers">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Descrição</th>
+                        <th>Situação</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="content">
+                    
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+
+                </tfoot>
+            </table>
         </div>
-    </div>
-    <script src="scripts/lista_tarefa.js"></script>
+    </main>
+    <script>
+        const button = document.getElementById("buttonAdd");
+        const tabela = document.getElementById("customers");
+        const conteudo = document.getElementById("content");
+        const input = document.getElementById("inputAdd");
+
+        button.addEventListener("click", clickButtonAdd);
+
+
+        function clickButtonDel(r){
+            var i = r.parentNode.parentNode.rowIndex;
+            document.getElementById("customers").deleteRow(i);
+        }
+
+        function clickButtonFinish(r){
+            let line = r.parentNode.parentNode;
+            let status = line.querySelectorAll("td")[2]
+            status.innerHTML = "Concluído"
+        }
+
+        function clickButtonEdit(r){
+            let line = r.parentNode.parentNode;
+            let tarefa = line.querySelectorAll("td")[1]
+            
+            let btnSalve = document.createElement("button")
+            btnSalve.innerHTML = "Salvar"
+            let input = document.createElement("input")
+            //tarefa.innerHTML = "<input value=" + tarefa.value +" />"
+            input.value = tarefa.innerHTML
+            tarefa.innerHTML = ""
+            tarefa.appendChild(input);
+            tarefa.appendChild(btnSalve);
+            
+            
+            btnSalve.addEventListener('click', function () {
+                tarefa.innerHTML = input.value
+            });
+        }
+
+        
+        function clickButtonAdd() {
+
+            let btnDel = document.createElement("button");
+            btnDel.innerHTML = "Apagar";
+            let btnEdit = document.createElement("button");
+            btnEdit.innerHTML = "Editar";
+            let btnFinish = document.createElement("button");
+            btnFinish.innerHTML = "Concluir";
+            
+            btnDel.classList.add("btn-del");
+            btnEdit.classList.add("btn-edit");
+            btnFinish.classList.add("btn-finish")
+
+            btnDel.addEventListener('click', function() {
+                clickButtonDel(this);
+            }, false);
+        
+            btnFinish.addEventListener('click', function() {
+                clickButtonFinish(this)
+            }, false);
+
+            btnEdit.addEventListener('click', function() {
+                clickButtonEdit(this)
+            })
+            let linha = conteudo.insertRow(-1);
+            let coll1 = linha.insertCell(0);
+            let coll2 = linha.insertCell(1);
+            let coll3 = linha.insertCell(2);
+            let coll4 = linha.insertCell(3);
+
+            coll4.classList.add("btn-action")
+
+            let qtd = conteudo.getElementsByTagName("tr").length
+            coll1.innerHTML = qtd;
+            coll2.innerHTML = input.value;
+            coll3.innerHTML = "Pendente"
+        
+            coll4.appendChild(btnDel);
+            coll4.appendChild(btnFinish);
+            coll4.appendChild(btnEdit);
+
+            input.value = ""
+            
+        }
+    </script>
 </body>
+
 </html>
