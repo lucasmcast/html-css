@@ -1,5 +1,5 @@
 function addTarefa (){
-
+    console.log("Erro")
 }
 
 function removeTarefa(){

@@ -1,0 +1,93 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.containerInput {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 20px;
+    width: 100%;
+}
+
+.containerInput input{
+    width: 50%;
+    height: 80%;
+    margin: 10px;
+}
+#buttonAdd {
+    height: 80%;
+}
+.container {
+    margin: 20px;
+    padding: 20px;
+    background:#f3f3f3;
+}
+
+
+#mainHeader {
+
+}
+
+#customers{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;  
+}
+
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers thead th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #018686;
+  color: white;
+}
+
+tfoot {
+    background-color: #018786;
+    color: #fff;
+}
+
+.btn-action{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.btn-del {
+    background: #b00020;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 5px 5px 0 rgba(25,25, 25, 0.8);
+    padding: 10px;
+    color: white;
+}
+
+.btn-finish {
+    background: #03dac6;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 5px 5px 0 rgba(25,25, 25, 0.8);
+    padding: 10px;
+    color: white;
+}
+
+.btn-edit {
+    background: #3700b3;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 5px 5px 0 rgba(25,25, 25, 0.8);
+    padding: 10px;
+    color: white;
+}
