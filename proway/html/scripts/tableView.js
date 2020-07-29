@@ -2,21 +2,15 @@ class TableView{
 
     constructor(){
         this.controler = new TableController();
-        this.renderTable();
-        this.buttonAdd = document.getElementById("buttonAdd");
-        this.buttonAdd.addEventListener('click', this.addItem);
+        this.addEventListener('click', addEventButtonAdd);
     }
 
-    addEventButton = () =>{
-        this.controler.addEventButton();
+    addEventButtonAdd = () =>{
+        const button = document.getElementById("buttonAdd");
+        button.addEventListener('click', addItem)
     }
 
-    addItem = () => {
-        this.controler.addItemTable();
-    }
-
-    renderTable = () => {
-        const itemsTable = ["ID", "Descrição", "Situação", "Ação"];
-        this.controler.renderTable(itemsTable);
+    addItemTable = () =>{
+        this.controler.addItemTable()
     }
 }

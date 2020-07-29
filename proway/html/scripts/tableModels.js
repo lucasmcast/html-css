@@ -2,23 +2,30 @@ class TableModel{
     
     constructor(items){
         this.items = items;
-        this.table = document.getElementById("customers");
-        this.thead = document.createElement("thead");
-        this.tr = document.createElement("tr");
-        this.createLineCol(this.items, this.tr);
-        this.content = document.createElement("tbody");
     }
 
     renderTable = () => {
-        this.content.id = "content";
+        //renderiza na pagina html a tabela
+        const button = document.getElementById("buttonAdd");
+
+        button.addEventListener("click", this.addItem);
+
+        const table = document.getElementById("customers");
+        const thead = document.createElement("thead");
+        const tr = document.createElement("tr")
+
+        this.createLineCol(this.items, tr);
+
+        const content = document.createElement("tbody");
+        content.id = "content";
 
         const tfoot = document.createElement("tfoot");
 
-        this.thead.appendChild(this.tr);
+        thead.appendChild(tr);
 
-        this.table.appendChild(this.thead);
-        this.table.appendChild(this.content);
-        this.table.appendChild(tfoot);
+        table.appendChild(thead);
+        table.appendChild(content);
+        table.appendChild(tfoot);
     }
 
     createLineCol = (items, tr) => {
@@ -30,40 +37,8 @@ class TableModel{
         }
     }
 
-    clickButtonDel(r) {
-        var i = r.parentNode.parentNode.rowIndex;
-        document.getElementById("customers").deleteRow(i);
-    }
-
-    clickButtonFinish(r){
-        let line = r.parentNode.parentNode;
-        let status = line.querySelectorAll("td")[2]
-        status.innerHTML = "Concluído"
-    }
-
-    clickButtonEdit(r){
-        let line = r.parentNode.parentNode;
-        let tarefa = line.querySelectorAll("td")[1]
-        
-        let btnSalve = document.createElement("button")
-        btnSalve.innerHTML = "Salvar"
-        let input = document.createElement("input")
-        input.value = tarefa.innerHTML
-        tarefa.innerHTML = ""
-        tarefa.appendChild(input);
-        tarefa.appendChild(btnSalve);
-        
-        
-        btnSalve.addEventListener('click', function () {
-            tarefa.innerHTML = input.value
-        });
-    }
-
-    getContent(){
-        return this.content;
-    }
-
-    setContent(){
-        
+    addItem = () => {
+        const controler = Controler();
+        controler.addItem();
     }
 }
