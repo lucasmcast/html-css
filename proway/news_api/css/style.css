@@ -1,7 +1,17 @@
 header {
     background:#4A148C;
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
+main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 60px 0 0 ;
+}
 .caixa {
     padding: 10px;
     padding-left: 50px;
@@ -9,6 +19,7 @@ header {
     justify-content: start;
     align-items: center;
 }
+
 nav img {
     width: 32px;
     background: #ffffff;
@@ -22,40 +33,73 @@ nav a {
     text-transform: uppercase;
     color: #ffffff;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 20px;
     text-decoration: none;
 }
-
 .container {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 50% 50%;
+
 }
 
 .card {
-    margin: 10px;
-    width: 85%;
+    width: 90%;
     border: 1px solid;
     border-radius: 10px;
     box-shadow:3px 5px 5px;
+    margin: auto;
+    margin-top: 20px;
 }
 
 .card-header {
     background:#F3E5F5 ;
     border-radius: 10px 10px 0 0;
     padding: 8px;
-}
-.card-content {
-    background: honeydew;
-    padding: 8px;
+    font-size: 22px;
+    text-align: center;
 }
 
-.card-img {
-    background: pink;
-    padding: 8px;
+.card-header a{
+    text-decoration: none;
 }
+
+.card-header a:hover{
+    color: #000000;
+    font-size: 25px;
+}
+.card-content {
+    display: flex;
+    background: honeydew;
+    padding: 8px;
+    text-align: center;
+}
+
+.card-content img{
+    max-width: 50%;
+    max-height: 50%;
+}
+
+
 .card-footer {
     background: #6A1B9A;
     color: white;
     border-radius: 0 0 10px 10px;
     padding: 8px;
+    display: flex;
+    justify-content: space-around;
+}
+
+footer {
+    width: 100%;
+    height: 50px;
+    background: #6A1B9A;
+    margin: 20px 0 0;
+}
+@media (max-width:720px){
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }

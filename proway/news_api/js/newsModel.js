@@ -11,7 +11,12 @@ export class News{
     }
 
     setAuthor(author){
-        this.author = author;
+        if(author == null){
+            this.author = "Sem Autor";
+        }else{
+            this.author = author;
+
+        }
     }
 
     getAuthor(){
@@ -35,7 +40,15 @@ export class News{
     }
 
     setUrlImage(urlImage){
-        this.urlImage = urlImage;
+        if(urlImage === null){
+            this.urlImage = "/images/sem_image.png";
+        }else{
+            this.urlImage = urlImage;
+        }
+    }
+
+    getUrlImage(){
+        return this.urlImage;
     }
 
     setContent(content){
