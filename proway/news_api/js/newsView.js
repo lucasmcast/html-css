@@ -5,36 +5,41 @@ import { News } from "./newsModel.js";
 export class NewsView{
 
     constructor(){
-        this.cards = new CardModel();
         this.controller = new NewsController();
-        this.createCards();
     }
 
-    async createCards(){
-        const data = await this.controller.getTopNewsApi();
+    async renderNews(){
+        const response = await this.controller.getTopNewsApi();
+        let data = response.articles
+        this.createCards(data, "Salvar", (noticia) => {
+            this.clickBotao(noticia);
+        })
+    }
+    createCards(data, nameButton, callback){
         let loader = document.getElementById("loader");
         loader.style.display = "none";
         //console.log(data)
         let news = [];
-        let qtdData = data.articles.length;
+        let qtdData = data.length;
         //console.log(qtdData)
         for(let i=0; i < qtdData; i++){
             let card = new CardModel();
-            card.createCard();
+            let buttonSalvar = card.createButton(nameButton);
+            card.createCard(buttonSalvar);
             let noticia = new News();
-            noticia.setTitle(data.articles[i].title)
-            noticia.setAuthor(data.articles[i].author);
-            noticia.setContent(data.articles[i].content);
-            noticia.setDescription(data.articles[i].description);
-            noticia.setPublishedAt(data.articles[i].publishedAt);
-            noticia.setUrlImage(data.articles[i].urlToImage);
-            noticia.setUrl(data.articles[i].url);
+            noticia.setTitle(data[i].title)
+            noticia.setAuthor(data[i].author);
+            noticia.setContent(data[i].content);
+            noticia.setDescription(data[i].description);
+            noticia.setPublishedAt(data[i].publishedAt);
+            noticia.setUrlImage(data[i].urlToImage);
+            noticia.setUrl(data[i].url);
 
             news.push(noticia);
             
         }
 
-        this.setNewsCards(news);
+        this.setNewsCards(news, callback);
     }
 
     clickBotao(noticia){
@@ -42,7 +47,7 @@ export class NewsView{
         //console.log(noticia.getContent())
     }
 
-    setNewsCards(news){
+    setNewsCards(news, callback){
         const container = document.getElementsByClassName("container");
         
         for(let i=0; i < news.length; i++){
@@ -63,7 +68,7 @@ export class NewsView{
             footer[1].innerHTML = news[i].getAuthor();
             let noticia = news[i]
             footer[2].addEventListener('click', () => {
-                this.clickBotao(noticia);
+                callback(noticia);
             });
         }  
         

@@ -30,10 +30,10 @@ export class DataBase{
             news.createIndex("author", "author", { unique: false });
             news.createIndex("content", "content", {unique: false});
             news.createIndex("description", "description", {unique: false});
-            news.createIndex("title", "title", {unique: false});
+            news.createIndex("title", "title", {unique: true});
             news.createIndex("url", "url", {unique: false});
-            news.createIndex("urlImage", "urlImage", {unique: false});
-            news.createIndex("published", "published", {unique: false})
+            news.createIndex("urlToImage", "urlToImage", {unique: false});
+            news.createIndex("publishedAt", "publishedAt", {unique: false})
         
         };
 

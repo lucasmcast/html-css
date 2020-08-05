@@ -16,4 +16,14 @@ export class NewsController{
     save(noticia){
         this.newsDao.save(noticia);
     }
+
+    getAllNewsDB(){
+        var response = this.newsDao.getAllNewsDB();
+        return response;
+    }
+
+    async delete(noticia){
+        let title = noticia.getTitle()
+        this.newsDao.delete(title);
+    }
 }
