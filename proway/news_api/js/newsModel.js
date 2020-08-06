@@ -1,3 +1,7 @@
+/**Class model for News
+ * @author Lucas Martins de Castro <lucas.martins.c03@gmail.com>
+ * @since 1.0.0
+ */
 export class News{
 
     constructor(){
@@ -59,6 +63,10 @@ export class News{
         return this.content;
     }
 
+    /**
+     * @TODO manipulate string for date
+     * @param {String} publishedAt 
+     */
     setPublishedAt(publishedAt){
         this.publishedAt = publishedAt;
     }

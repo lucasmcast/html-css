@@ -1,9 +1,22 @@
+/**
+ * Class responsible for creating cards in the html page
+ * 
+ * @since 1.0.0
+ * 
+ * @author Lucas Martins de Castro <lucas.martins.c03@gmail.com>
+ * 
+ */
 export class CardModel{
 
     constructor(){
         this.cards = document.getElementById("cards")
     }
 
+    /**
+     * Creates card for render in the page
+     * 
+     * @param {DOMElement} button button of card
+     */
     createCard(button){
             this.card = document.createElement('div');
             this.cardHeader = document.createElement('div');
@@ -42,6 +55,13 @@ export class CardModel{
 
     } 
 
+    /**
+     * Creates button and put button value and creates class css
+     * 
+     * @param {String} nameButton name of button for creates class css and button value
+     * 
+     * @returns DOMElement  
+     */
     createButton(nameButton){
         let button = document.createElement("button");
         button.innerHTML = nameButton

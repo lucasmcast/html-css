@@ -2,12 +2,18 @@ import { NewsController } from "./newsController.js";
 import { CardModel } from "./cardModel.js";
 import { News } from "./newsModel.js";
 
+/**Class responsible for renders data in the html page and call class NewsController
+ * @author Lucas Martins de Castro <lucas.martins.c03@gmail.com>
+ * @since 1.0.0
+ * 
+ */
 export class NewsView{
 
     constructor(){
         this.controller = new NewsController();
     }
 
+    /**Render the news call methodo createCards whith parameter data, nameButton and callback*/
     async renderNews(){
         const response = await this.controller.getTopNewsApi();
         let data = response.articles
@@ -15,6 +21,12 @@ export class NewsView{
             this.clickBotao(noticia);
         })
     }
+
+    /**Creates cards in the html page by length data from api
+     * @param {Object} data - data returns from api 
+     * @param {String} nameButton - name for to create button
+     * @param {Function} callback - Function callback click button
+     */
     createCards(data, nameButton, callback){
         let loader = document.getElementById("loader");
         loader.style.display = "none";
@@ -42,11 +54,19 @@ export class NewsView{
         this.setNewsCards(news, callback);
     }
 
-    clickBotao(noticia){
-        this.controller.save(noticia);
+    /**Perform button action when clicking, in this case, saves data in the database.
+     * @param {News} news - Class MOdel news
+     */
+    clickBotao(news){
+        this.controller.save(news);
         //console.log(noticia.getContent())
     }
-
+    /**
+     * Fill cards with data from api after of criating cards
+     * @param {News} news - Class News Object
+     * @param {Function} callback - Function callback click button
+     * @see NewsView.createCards()
+     */
     setNewsCards(news, callback){
         const container = document.getElementsByClassName("container");
         

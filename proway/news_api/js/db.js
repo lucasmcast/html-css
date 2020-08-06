@@ -11,9 +11,9 @@ export class DataBase{
         this.con((db) => {});
     }
     /**
-     * Make connetion with database
+     * Does connetion with database
      * 
-     * @param {Function Callback} callback 
+     * @param {Function} callback 
      */
     con(callback){
         this.db = null;
