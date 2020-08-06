@@ -37,7 +37,7 @@ class App{
 }
 
 new App();
-new UnitTest();
+//new UnitTest();
 window.onload = () => {
     'use strict';
 
